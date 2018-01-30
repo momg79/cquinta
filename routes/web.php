@@ -24,3 +24,6 @@ Route::resource('articles','ArticleController');
 
 //Categorias
 Route::resource('categorias','CategoriaController');
+
+//Jugadores
+Route::resource('jugadores','JugadorController');
