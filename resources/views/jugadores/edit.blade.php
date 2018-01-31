@@ -14,8 +14,8 @@
             </div>
         @endif
 
-    {!! Form::model($categoria, ['method' => 'PATCH','route' => ['categorias.update', $categoria->id]]) !!}
-            @include('categorias.form')
+    {!! Form::model($categoria, ['method' => 'PATCH','route' => ['jugadores.update', $categoria->id]]) !!}
+            @include('jugadores.form')
         {!! Form::close() !!}
 
 @endsection

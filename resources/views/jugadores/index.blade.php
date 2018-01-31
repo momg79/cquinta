@@ -9,28 +9,32 @@
         </div>
         @endif
             <div class="pull-right">
-                <a  class="btn btn-primary" href="{{ route('categorias.create') }}">Nueva Categoria</a>
+                <a  class="btn btn-primary" href="{{ route('jugadores.create') }}">Nuevo Jugador</a>
             </div>
             <div class="panel panel-primary">            
                 <div class="panel-heading">
-                    <h3 class="panel-title">Categorias</h3>
+                    <h3 class="panel-title">Jugadres(as)</h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                         <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido Materno</th>
+                        <th>Apellido Paterno</th>
+                        <th>Fono Contacto</th>
                         <th>Categoria</th>
-                        <th>Edad Minima</th>
-                        <th>Edad Máxima</th>
                         <th>Ver</th>
                         </thead>
                         <tbody>
-                        @foreach ($categorias as $categoria)
+                        @foreach ($jugadores as $jugador)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $categoria->categoria}}</td>
-                                <td>{{ $categoria->edad_minima}}</td>
-                                <td>{{ $categoria->edad_maxima}}</td>
+                                <td>{{ $jugador->Nombre}}</td>
+                                <td>{{ $jugador->apellido_materno}}</td>
+                                <td>{{ $jugador->apellido_paterno}}</td>
+                                <td>{{ $jugador->telefono1}}</td>
+                                <td>{{ $jugador->categoria}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button"                                              >
@@ -38,13 +42,13 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="{{ route('categorias.show',$categoria->id) }}">Ver</a>                                       
+                                                <a href="{{ route('jugadores.show',$categoria->id) }}">Ver</a>                                       
                                             </li>
                                             <li>
-                                                <a href="{{ route('categorias.edit',$categoria->id) }}">Editar</a>                                        
+                                                <a href="{{ route('jugadores.edit',$categoria->id) }}">Editar</a>                                        
                                             </li>
                                             <li>
-                                                {!! Form::open(['method' => 'DELETE','route' => ['categorias.destroy', $categoria->id],'style'=>'display:inline']) !!}
+                                                {!! Form::open(['method' => 'DELETE','route' => ['jugadores.destroy', $categoria->id],'style'=>'display:inline']) !!}
                                                 {!! Form::submit('..Delete', ['class' => 'btn btn-link']) !!}
                                                 {!! Form::close() !!}                                       
                                             </li>

@@ -52,7 +52,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{url('/jugadoras')}}">
+                                        <a href="{{url('/jugadores')}}">
                                             Jugadoras
                                         </a>                                        
                                     </li>
