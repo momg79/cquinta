@@ -16,7 +16,7 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Completo</label>
                             <div class="col-sm-10">
-                                {{ $jugador->nombre}} {{ $jugador->apellido_materno}} {{ $categoria->apellido_paterno}}
+                                {{ $jugador->nombre}} {{ $jugador->apellido_materno}} {{ $jugador->apellido_paterno}}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="pull-right">
-                            <a class="btn btn-primary" href="{{ route('categorias.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('jugadores.index') }}"> Back</a>
                         </div>
                     </form>
                 </div>

@@ -44,8 +44,8 @@ class JugadorController extends Controller
             'nombre'                => 'required',
             'apellido_materno'      => 'required',
             'apellido_paterno'      => 'required',
-            'fecha_nacimiento'      => 'required',
-            'fecha_ingreso'         => 'required',
+            'fecha_nacimiento'      => 'date_format:"Y-m-d"|required',
+            'fecha_ingreso'         => 'date_format:"Y-m-d"|required',
             'categoria'             => 'required',
             'telefono1'             => 'required',
             'telefono2'             => 'required',
@@ -56,7 +56,7 @@ class JugadorController extends Controller
             'correoapoderado'       => 'required',
             'estado_alumno'         => 'required',
         ]);
-        Categoria::create($request->all());
+        Jugador::create($request->all());
         return redirect()->route('jugadores.index')
                         ->with('success','Jugador Creado');
     }
@@ -70,7 +70,7 @@ class JugadorController extends Controller
      */
     public function show($Id)
     {
-        $jugador = Categoria::find($Id);
+        $jugador = Jugador::find($Id);
         return view('jugadores.show',compact('jugador'));
     }
 
@@ -83,8 +83,8 @@ class JugadorController extends Controller
      */
     public function edit($id)
     {
-        $jugador = Categoria::find($id);
-        return view('jugador.edit',compact('jugador'));
+        $jugador = Jugador::find($id);
+        return view('jugadores.edit',compact('jugador'));
     }
 
 

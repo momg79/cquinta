@@ -13,7 +13,7 @@
             </div>
             <div class="panel panel-primary">            
                 <div class="panel-heading">
-                    <h3 class="panel-title">Jugadres(as)</h3>
+                    <h3 class="panel-title">Jugadores(as)</h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped">
@@ -42,13 +42,13 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="{{ route('jugadores.show',$categoria->id) }}">Ver</a>                                       
+                                                <a href="{{ route('jugadores.show',$jugador->id) }}">Ver</a>                                       
                                             </li>
                                             <li>
-                                                <a href="{{ route('jugadores.edit',$categoria->id) }}">Editar</a>                                        
+                                                <a href="{{ route('jugadores.edit',$jugador->id) }}">Editar</a>                                        
                                             </li>
                                             <li>
-                                                {!! Form::open(['method' => 'DELETE','route' => ['jugadores.destroy', $categoria->id],'style'=>'display:inline']) !!}
+                                                {!! Form::open(['method' => 'DELETE','route' => ['jugadores.destroy', $jugador->id],'style'=>'display:inline']) !!}
                                                 {!! Form::submit('..Delete', ['class' => 'btn btn-link']) !!}
                                                 {!! Form::close() !!}                                       
                                             </li>
@@ -66,5 +66,5 @@
                  
             </div>
         </div>
-    {!! $categorias->links() !!}
+    {!! $jugadores->links() !!}
 @endsection
