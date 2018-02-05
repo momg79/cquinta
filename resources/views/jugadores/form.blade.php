@@ -1,15 +1,9 @@
- 
 <div class="container">
     <div class="row">    
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">                
                 <div class="panel-heading">Jugador</div>
                 <div class="panel-body">
-                   @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif      
                     <form>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Rut</label>
@@ -38,7 +32,7 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">F. Nacimiento</label>
                             <div class="col-sm-10">
-                            {!! Form::text('fecha_nacimiento', null, array('placeholder' => 'Fecha Nacimiento','class' => 'form-control')) !!}
+                                 {!! Form::text('fecha_nacimiento', null, array('placeholder' => 'Fecha Nacimiento','class' => 'form-control')) !!}                          
                             </div>
                         </div>
                         <div class="form-group row">
@@ -106,7 +100,7 @@
                         <div class="pull-right">
                             <a class="btn btn-primary" href="{{ route('jugadores.index') }}"> Back</a>
                         </div>
-                    </form>
+                    </form>                 
                 </div>
             </div>
         </div>

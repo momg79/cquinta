@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
-       @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-        @endif
             <div class="pull-right">
                 <a  class="btn btn-primary" href="{{ route('jugadores.create') }}">Nuevo Jugador</a>
             </div>
@@ -20,21 +14,19 @@
                         <thead>
                         <th>Id</th>
                         <th>Nombre</th>
-                        <th>Apellido Materno</th>
-                        <th>Apellido Paterno</th>
-                        <th>Fono Contacto</th>
-                        <th>Categoria</th>
+                        <th>A. Paterno</th>
+                        <th>A. Materno</th>                       
+                        <th>Fono</th>
                         <th>Ver</th>
                         </thead>
                         <tbody>
                         @foreach ($jugadores as $jugador)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $jugador->Nombre}}</td>
-                                <td>{{ $jugador->apellido_materno}}</td>
+                                <td>{{ $jugador->nombre}}</td>
                                 <td>{{ $jugador->apellido_paterno}}</td>
+                                <td>{{ $jugador->apellido_materno}}</td>                                
                                 <td>{{ $jugador->telefono1}}</td>
-                                <td>{{ $jugador->categoria}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button"                                              >
