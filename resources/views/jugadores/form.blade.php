@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">    
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col">
             <div class="panel panel-default">                
                 <div class="panel-heading">Jugador</div>
                 <div class="panel-body">
@@ -41,18 +41,21 @@
                             {!! Form::text('fecha_ingreso', null, array('placeholder' => 'Fecha Ingreso al Club','class' => 'form-control')) !!}
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Categoria</label>
-                            <div class="col-sm-10">
-                            {!! Form::text('categoria', null, array('placeholder' => 'Categoria','class' => 'form-control')) !!}
+                         
+                        <div class="form-group row">                            
+                            {!! Form::label('categoria', 'Categorias', ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-10">                                
+                                {!! Form::select('categoria', $categorias, null, ['class' => 'form-control']) !!}                                
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Telefono 1</label>
                             <div class="col-sm-10">
                             {!! Form::text('telefono1', null, array('placeholder' => 'Número Telefono Principal','class' => 'form-control')) !!}
                             </div>
                         </div>
+                        
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Telefono 2</label>
                             <div class="col-sm-10">

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use App\Jugador;
+use App\Categoria;
 
 
 class JugadorController extends Controller
@@ -39,7 +43,12 @@ class JugadorController extends Controller
     public function create()
     {
         //
-        return view('jugadores.create');
+        //$categorias = DB::table('categorias')->distinct()->get();        
+        $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');
+        //$categorias = Categoria::All();
+        return view('jugadores.create',compact('categorias'));
+        
+              
     }
 
      /**
@@ -67,6 +76,8 @@ class JugadorController extends Controller
             'correoapoderado'       => 'required',
             'estado_alumno'         => 'required',
         ]);
+
+           
         Jugador::create($request->all());
         return redirect()->route('jugadores.index')
                         ->with('success','Jugador Creado');
@@ -81,6 +92,7 @@ class JugadorController extends Controller
      */
     public function show($Id)
     {
+       
         $jugador = Jugador::find($Id);
         return view('jugadores.show',compact('jugador'));
     }
@@ -94,8 +106,9 @@ class JugadorController extends Controller
      */
     public function edit($id)
     {
+        $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');
         $jugador = Jugador::find($id);
-        return view('jugadores.edit',compact('jugador'));
+        return view('jugadores.edit',compact('jugador','categorias'));
     }
 
 

@@ -12,6 +12,6 @@ class Categoria extends Model
      * @var array
      */
     protected $fillable = [
-        'categoria', 'edad_minima', 'edad_maxima'
+        'id','categoria', 'edad_minima', 'edad_maxima'
     ];
 }

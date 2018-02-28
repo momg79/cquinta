@@ -83,11 +83,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Jugadoras</a>
-                    <a href="https://laracasts.com">Campeonatos</a>
-                    <a href="https://laravel-news.com">Historia</a>
-                    <a href="https://forge.laravel.com">Contacto</a>
-                    <a href="https://github.com/laravel/laravel">Merchandising</a>
+                    <a href="http://www.quintabalonmano.cl/">Jugadoras</a>
+                    <a href="http://www.quintabalonmano.cl/">Campeonatos</a>
+                    <a href="http://www.quintabalonmano.cl/">Historia</a>
+                    <a href="http://www.quintabalonmano.cl/">Contacto</a>
+                    <a href="http://www.quintabalonmano.cl/">Merchandising</a>
                 </div>
             </div>
         </div>

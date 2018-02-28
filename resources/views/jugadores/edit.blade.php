@@ -14,7 +14,7 @@
             </div>
         @endif
 
-    {!! Form::model($jugador, ['method' => 'PATCH','route' => ['jugadores.update', $jugador->id]]) !!}
+        {!! Form::model($jugador, ['method' => 'PATCH','route' => ['jugadores.update', $jugador->id]]) !!}
             @include('jugadores.form')
         {!! Form::close() !!}
 
