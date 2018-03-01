@@ -10,73 +10,73 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Completo</label>
                             <div class="col-sm-10">
-                                {{ $jugador->nombre}} {{ $jugador->apellido_materno}} {{ $jugador->apellido_paterno}}
+                                {{ $jugador[0]->nombre}} {{ $jugador[0]->apellido_materno}} {{ $jugador[0]->apellido_paterno}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Fecha Nacimiento</label>
                             <div class="col-sm-10">
-                                {{ $jugador->fecha_nacimiento}}
+                                {{  date('d-m-Y', strtotime($jugador[0]->fecha_nacimiento)) }}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Fecha Ingreso al Club</label>
                             <div class="col-sm-10">
-                                {{ $jugador->fecha_ingreso}}
+                                {{ date('d-m-Y', strtotime($jugador[0]->fecha_ingreso)) }}
                             </div>
                         </div>
                        <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Categoria</label>
                             <div class="col-sm-10">
-                                {{ $jugador->categoria}}
+                                {{ $jugador[0]->categoria}}
                             </div>
                         </div>
                        <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Telefono Principal</label>
                             <div class="col-sm-10">
-                                {{ $jugador->telefono1}}
+                                {{ $jugador[0]->telefono1}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Telefono 2</label>
                             <div class="col-sm-10">
-                                {{ $jugador->telefono2}}
+                                {{ $jugador[0]->telefono2}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Correo</label>
                             <div class="col-sm-10">
-                                {{ $jugador->correo}}
+                                {{ $jugador[0]->correo}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Dirección</label>
                             <div class="col-sm-10">
-                                {{ $jugador->direccion}}
+                                {{ $jugador[0]->direccion}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Apoderador</label>
                             <div class="col-sm-10">
-                                {{ $jugador->apoderado}}
+                                {{ $jugador[0]->apoderado}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Fono Apoderado</label>
                             <div class="col-sm-10">
-                                {{ $jugador->telefonoapoderado}}
+                                {{ $jugador[0]->telefonoapoderado}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Correo Apoderado</label>
                             <div class="col-sm-10">
-                                {{ $jugador->correoapoderado}}
+                                {{ $jugador[0]->correoapoderado}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Estado en el club</label>
                             <div class="col-sm-10">
-                                {{ $jugador->estado_alumno}}
+                                {{ $jugador[0]->estado_alumno}}
                             </div>
                         </div>
 

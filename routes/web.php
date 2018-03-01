@@ -27,3 +27,9 @@ Route::resource('categorias','CategoriaController');
 
 //Jugadores
 Route::resource('jugadores','JugadorController');
+
+
+//test
+Route::get('/test/datepicker', function () {
+    return view('datepicker');
+});

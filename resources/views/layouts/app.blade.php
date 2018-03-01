@@ -13,6 +13,19 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- Jquery -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Datepicker Files -->
+    <link rel="stylesheet" href="{{ URL::asset('datePicker/css/bootstrap-datepicker3.css') }} ">
+    <!--<link rel="stylesheet" href="{{ URL::asset('datePicker/css/bootstrap-standalone.css') }} "> -->
+    
+    {!! Html::style('datePicker/css/bootstrap-datepicker.standalone.css') !!}
+    
+    <script src="{{ URL::asset('datePicker/js/bootstrap-datepicker.js') }}"></script>
+    <!-- Languaje -->
+    <script src="{{ URL::asset('datePicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
 
 </head>
 <body>
@@ -96,7 +109,8 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts 
     <script src="{{ asset('js/app.js') }}"></script>
+    -->
 </body>
 </html>

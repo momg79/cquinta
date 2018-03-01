@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Jugador;
 use App\Categoria;
 
+use Carbon\Carbon;
+
 
 class JugadorController extends Controller
 {
@@ -23,6 +25,8 @@ class JugadorController extends Controller
             $this->middleware('auth');
         }
     
+
+        
     /**
      * Display a listing of the resource.
      *
@@ -42,12 +46,13 @@ class JugadorController extends Controller
      */
     public function create()
     {
-        //
+        
+        $date = Carbon::now();
+        $date = $date->format('Y-m-d');
         //$categorias = DB::table('categorias')->distinct()->get();        
         $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');
         //$categorias = Categoria::All();
-        return view('jugadores.create',compact('categorias'));
-        
+        return view('jugadores.create',compact('categorias', 'date'));
               
     }
 
@@ -59,6 +64,9 @@ class JugadorController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request['fecha_nacimiento'] = date('Y-m-d', strtotime($request['fecha_nacimiento']));
+        $request['fecha_ingreso'] = date('Y-m-d', strtotime($request['fecha_ingreso']));
         request()->validate([
             'rut'                   => 'required',
             'nombre'                => 'required',
@@ -77,7 +85,6 @@ class JugadorController extends Controller
             'estado_alumno'         => 'required',
         ]);
 
-           
         Jugador::create($request->all());
         return redirect()->route('jugadores.index')
                         ->with('success','Jugador Creado');
@@ -93,7 +100,14 @@ class JugadorController extends Controller
     public function show($Id)
     {
        
-        $jugador = Jugador::find($Id);
+        /*$jugador = Jugador::find($Id);*/
+
+        $jugador = DB::table('jugadors')
+        ->select('jugadors.*', 'categorias.categoria')
+        ->join('categorias', 'jugadors.categoria', '=', 'categorias.id')
+        ->where('jugadors.id', '=', $Id)
+        ->get();
+
         return view('jugadores.show',compact('jugador'));
     }
 
@@ -106,9 +120,13 @@ class JugadorController extends Controller
      */
     public function edit($id)
     {
+       
+        $date = Carbon::now();
+        $date = $date->format('Y-m-d');
+
         $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');
         $jugador = Jugador::find($id);
-        return view('jugadores.edit',compact('jugador','categorias'));
+        return view('jugadores.edit',compact('jugador','categorias','date'));
     }
 
 
@@ -121,13 +139,18 @@ class JugadorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+     
+        $request['fecha_nacimiento'] = date('Y-m-d', strtotime($request['fecha_nacimiento']));
+        $request['fecha_ingreso'] = date('Y-m-d', strtotime($request['fecha_ingreso']));
+
         request()->validate([
             'rut'                   => 'required',
             'nombre'                => 'required',
             'apellido_materno'      => 'required',
             'apellido_paterno'      => 'required',
-            'fecha_nacimiento'      => 'required',
-            'fecha_ingreso'         => 'required',
+            'fecha_nacimiento'      => 'date_format:"Y-m-d"|required',
+            'fecha_ingreso'         => 'date_format:"Y-m-d"|required',
             'categoria'             => 'required',
             'telefono1'             => 'required',
             'telefono2'             => 'required',
