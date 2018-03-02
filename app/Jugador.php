@@ -28,4 +28,7 @@ class Jugador extends Model
         'correoapoderado',
         'estado_alumno'
     ];
+
+
+    
 }
