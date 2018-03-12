@@ -1,15 +1,7 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 	<head>
-		<!-- NAME: SIMPLE TEXT -->
-		<!--[if gte mso 15]>
-        <xml>
-            <o:OfficeDocumentSettings>
-            <o:AllowPNG/>
-            <o:PixelsPerInch>96</o:PixelsPerInch>
-            </o:OfficeDocumentSettings>
-        </xml>
-        <![endif]-->
+
 		<meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -371,9 +363,7 @@
 
 }</style></head>
     <body>
-		<!--*|IF:MC_PREVIEW_TEXT|*-->
-		<!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
-		<!--*|END:IF|*-->
+	
         <center>
             <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
                 <tr>
@@ -483,7 +473,7 @@ o bien informar el pago usando la plataforma en&nbsp;</span></span><a href="http
                             <p><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px"><u><em>Información para deposito:</em></u><br>
 Banco: Santander<br>
 Cuenta Corriente: 111223445<br>
-Rut: 11111111-1<br>
+Rut: 11111111-k<br>
 A Nombre: Club Quinta<br>
 <br>
 Atte,<br>
