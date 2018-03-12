@@ -50,8 +50,8 @@ class JugadorController extends Controller
         $date = Carbon::now();
         $date = $date->format('Y-m-d');
         //$categorias = DB::table('categorias')->distinct()->get();        
-        $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');
-        //$categorias = Categoria::All();
+        $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');        
+        //$categorias = Categoria::All();        
         return view('jugadores.create',compact('categorias', 'date'));
               
     }
@@ -72,6 +72,7 @@ class JugadorController extends Controller
             'nombre'                => 'required',
             'apellido_materno'      => 'required',
             'apellido_paterno'      => 'required',
+            'sexo'                  => 'required',
             'fecha_nacimiento'      => 'date_format:"Y-m-d"|required',
             'fecha_ingreso'         => 'date_format:"Y-m-d"|required',
             'categoria'             => 'required',
@@ -122,7 +123,7 @@ class JugadorController extends Controller
     {
        
         $date = Carbon::now();
-        $date = $date->format('Y-m-d');
+        $date = $date->format('d-m-Y');
 
         $categorias = Categoria::orderBy('categoria','ASC')->pluck('categoria', 'id');
         $jugador = Jugador::find($id);
@@ -149,6 +150,7 @@ class JugadorController extends Controller
             'nombre'                => 'required',
             'apellido_materno'      => 'required',
             'apellido_paterno'      => 'required',
+            'sexo'                  => 'required',
             'fecha_nacimiento'      => 'date_format:"Y-m-d"|required',
             'fecha_ingreso'         => 'date_format:"Y-m-d"|required',
             'categoria'             => 'required',

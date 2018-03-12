@@ -16,6 +16,7 @@ class Jugador extends Model
         'nombre',
         'apellido_materno',
         'apellido_paterno',
+        'sexo',
         'fecha_nacimiento',
         'fecha_ingreso',
         'categoria',

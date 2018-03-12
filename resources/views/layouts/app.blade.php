@@ -10,9 +10,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <!-- Styles  -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">    
+    <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Jquery -->
@@ -26,6 +28,10 @@
     <script src="{{ URL::asset('datePicker/js/bootstrap-datepicker.js') }}"></script>
     <!-- Languaje -->
     <script src="{{ URL::asset('datePicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
+
+  
+
+
 
 </head>
 <body>
@@ -43,7 +49,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -60,32 +66,66 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
-                        @else                        
-                          <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    Administrar <span class="caret"></span>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Notifications <span class="badge">{{count(Auth::user()->unreadNotifications)}}</span>
                                 </a>
-                                <ul class="dropdown-menu">
+                            
+                                <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{url('/jugadores')}}">
-                                            Jugadoras
-                                        </a>                                        
-                                    </li>
-                                    <li>
-                                        <a href="{{url('/categorias')}}">
-                                            Categorias
-                                        </a>                                        
-                                    </li>
-                                    <li>
-                                        <a href="{{url('/articles')}}">
-                                            Gestión Pagos
-                                        </a>                                        
+                                        @foreach (Auth::user()->unreadNotifications as $notification)
+                                            <a href="{{ route('posts.show', $notification->data['post']['id']) }}"><i>{{ $notification->data["user"]["name"] }}</i> has commented in <b>{{ $notification->data["post"]["title"] }}</b></a>
+                                        @endforeach
                                     </li>
                                 </ul>
-                            </li>
+                            </li>    
+                            @if ( Auth::user()->tipo == "2")      
+                                <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                            Administrar <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">                                   
+                                            <li>
+                                                <a href="{{url('/jugadores')}}">
+                                                    Jugadoras
+                                                </a>                                        
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/categorias')}}">
+                                                    Categorias
+                                                </a>                                        
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/pagos')}}">
+                                                    Gestión de Pagos
+                                                </a>                                        
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
+                                @if ( Auth::user()->tipo == "1")
+                                <li>
+                                    <a href="{{url('/jugadores')}}">
+                                        Jugadores
+                                    </a>                                        
+                                </li>
+                                <li>
+                                        <a href="{{url('/mispagos')}}">
+                                            Cartola de Pagos
+                                        </a>                                    
+                                    </li>  
+                                @endif
+                                @if ( Auth::user()->tipo == "0")
+                                    <li>
+                                        <a href="{{url('/jugadores')}}">
+                                            Jugadores
+                                        </a>                                        
+                                    </li>                                        
+                                @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}  <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>

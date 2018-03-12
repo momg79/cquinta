@@ -2,9 +2,16 @@
 
 @section('content')
 <div class="container">
-            <div class="pull-right">
-                <a  class="btn btn-primary" href="{{ route('jugadores.create') }}">Nuevo Jugador</a>
+
+        @if ($message = Session::get('success'))           
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>{{ $message }}</p>
             </div>
+        @endif
+            <div class="pull-right">
+                <a  class="btn btn-primary" href="{{ route('jugadores.create') }}">Registrar Jugador</a>
+            </div>          
             <div class="panel panel-primary">            
                 <div class="panel-heading">
                     <h3 class="panel-title">Jugadores(as)</h3>
@@ -36,14 +43,17 @@
                                             <li>
                                                 <a href="{{ route('jugadores.show',$jugador->id) }}">Ver</a>                                       
                                             </li>
+                                            @if ( Auth::user()->tipo == "2")   
                                             <li>
                                                 <a href="{{ route('jugadores.edit',$jugador->id) }}">Editar</a>                                        
                                             </li>
+                                            
                                             <li>
                                                 {!! Form::open(['method' => 'DELETE','route' => ['jugadores.destroy', $jugador->id],'style'=>'display:inline']) !!}
                                                 {!! Form::submit('..Delete', ['class' => 'btn btn-link']) !!}
                                                 {!! Form::close() !!}                                       
                                             </li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </td>

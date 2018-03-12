@@ -2,9 +2,17 @@
 @section('content')
 
 <div class="container">
+
+        @if ($message = Session::get('success'))           
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         <div class="pull-right">
             <a  class="btn btn-primary" href="{{ route('categorias.create') }}">Nueva Categoria</a>
-        </div>
+        </div>      
+        
         <div class="panel panel-primary">            
             <div class="panel-heading">
                 <h3 class="panel-title">Categorias</h3>

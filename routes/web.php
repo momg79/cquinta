@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('portada');
 });
 
 Auth::routes();
@@ -28,8 +28,15 @@ Route::resource('categorias','CategoriaController');
 //Jugadores
 Route::resource('jugadores','JugadorController');
 
+//Mis Pagos
+Route::resource('mispagos','MipagoController');
+
+//Pagos
+Route::resource('pagos','PagoController');
+Route::get('correo/{correo}/{sostenedor}/{deuda}/{periodo}/{jugador}','PagoController@correo');
 
 //test
 Route::get('/test/datepicker', function () {
     return view('datepicker');
 });
+
